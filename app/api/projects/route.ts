@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
 // GET /projects
 // route and page file cannot coexist in the same directory level.
@@ -10,8 +10,6 @@ export async function GET() {
 // where can we get the data?
 // where can we get search params?
 // TODO: where can we get the params? => this will need dynamic route
-export async function POST(request: NextRequest) {
-  console.log(request);
-
+export async function POST() {
   return NextResponse.json({ message: "Hello world from projects POST route" });
 }

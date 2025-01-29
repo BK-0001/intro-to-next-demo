@@ -20,8 +20,6 @@ const getCats = async (): Promise<CatType[]> => {
 export default async function CatsPage() {
   const cats = await getCats();
 
-  cats.forEach((cat) => console.log(cat.id));
-
   return (
     <>
       <h1>Cats Images</h1>
@@ -29,6 +27,7 @@ export default async function CatsPage() {
         {cats.map(({ id, url }) => (
           <li key={id}>
             <img src={url} alt="" />
+            <p>{id}</p>
           </li>
         ))}
       </ul>

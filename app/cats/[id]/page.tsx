@@ -1,8 +1,26 @@
+import { Metadata } from "next";
 import { CatType } from "../page";
 
 type Props = {
   params: Promise<{ id: string }>;
   searchParams: Promise<{ color: string; breed: string }>;
+};
+
+export const generateMetadata = async ({
+  params
+}: Props): Promise<Metadata> => {
+  const { id } = await params;
+
+  console.log("id", id);
+
+  const cat = await getCat(id);
+
+  console.log("cat", cat);
+
+  return {
+    title: `Cat with id: ${cat.id}`,
+    description: "cat with some image"
+  };
 };
 
 const getCat = async (id: string): Promise<CatType> => {

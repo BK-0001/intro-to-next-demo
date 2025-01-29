@@ -16,8 +16,6 @@ export async function PATCH(
   // how to get the body
   const body = await request.json();
 
-  console.log(projectId, title, body);
-
   return NextResponse.json({
     message: "Hello world from projects PATCH route"
   });
