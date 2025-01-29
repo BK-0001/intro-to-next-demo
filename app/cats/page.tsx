@@ -20,6 +20,8 @@ const getCats = async (): Promise<CatType[]> => {
 export default async function CatsPage() {
   const cats = await getCats();
 
+  cats.forEach((cat) => console.log(cat.id));
+
   return (
     <>
       <h1>Cats Images</h1>

@@ -15,6 +15,20 @@ const getCat = async (id: string): Promise<CatType> => {
   return response.json();
 };
 
+export const generateStaticParams = async () => {
+  const response = await fetch(
+    "https://api.thecatapi.com/v1/images/search?limit=10"
+  );
+
+  if (!response.ok) {
+    throw new Error("something gone wrong while getting cats image");
+  }
+
+  const cats: CatType[] = await response.json();
+
+  return cats.map((cat) => ({ id: cat.id }));
+};
+
 export default async function Cat({ params, searchParams }: Props) {
   const { id } = await params;
   const { color, breed } = await searchParams;
